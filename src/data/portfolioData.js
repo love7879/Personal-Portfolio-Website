@@ -71,8 +71,8 @@ export const projects = [
       "A full-stack men's and women's clothing store with filterable product browsing, a quick-view modal with size selection and add-to-cart, a slide-out cart drawer with live subtotals, and a flash-free dark/light theme toggle.",
     tags: ['React 18', 'Vite', 'Tailwind CSS v4', 'Watermelon UI', 'Radix UI', 'Lucide Icons'],
     image: '/images/Ecommerce.png',
-    liveUrl: '#',
-    codeUrl: '#',
+    liveUrl: 'https://lumi-apparel-ecommerce-website.vercel.app/',
+    codeUrl: 'https://github.com/love7879/LUMI-Apparel-Ecommerce-Website',
   },
   {
     title: 'Tripify',
@@ -80,8 +80,8 @@ export const projects = [
       'A concept travel-booking landing page with a full-bleed hero and interactive trip search, a filterable destination/experience browser, testimonials, and a newsletter signup — verified end-to-end with automated browser testing.',
     tags: ['React 19', 'Vite', 'HeroUI', 'Tailwind CSS v4', 'JavaScript'],
     image: '/images/Travel.png',
-    liveUrl: '#',
-    codeUrl: '#',
+    liveUrl: 'https://tripify-travelling-website.vercel.app/',
+    codeUrl: 'https://github.com/love7879/Tripify-Travelling-Website',
   },
   {
     title: 'Crypto Tracker',
@@ -89,8 +89,8 @@ export const projects = [
       'A live cryptocurrency dashboard tracking the top 100 coins via the CoinGecko REST API, with 60-second auto-refresh, color-coded price and market-cap indicators, and instant client-side search by name or symbol.',
     tags: ['React', 'Vite', 'Axios', 'Tailwind CSS v3'],
     image: '/images/Crypto-Tracker.png',
-    liveUrl: '#',
-    codeUrl: '#',
+    liveUrl: 'https://cryptocurrency-tracker-woad.vercel.app/',
+    codeUrl: 'https://github.com/love7879/Cryptocurrency-Tracker',
   },
   {
     title: 'Personal Portfolio Website',
@@ -99,6 +99,6 @@ export const projects = [
     tags: ['React 19', 'Vite', 'Tailwind CSS v4', 'HeroUI'],
     image: '/images/Portfolio.png',
     liveUrl: '#',
-    codeUrl: '#',
+    codeUrl: 'https://github.com/love7879/Personal-Portfolio-Website',
   },
 ]
