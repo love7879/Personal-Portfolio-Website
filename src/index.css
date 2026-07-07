@@ -1,0 +1,190 @@
+@import "tailwindcss";
+@import "@heroui/styles";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
+
+  --color-ink: #0a0a0a;
+  --color-muted: #6b6b6b;
+}
+
+:root {
+  /* Repoint HeroUI's accent to pure black/white so every primary-styled
+     component (buttons, focus rings, etc.) stays monochrome. */
+  --accent: var(--black);
+  --accent-foreground: var(--white);
+  --focus: var(--black);
+}
+
+.dark {
+  --color-ink: #f5f5f5;
+  --color-muted: #a3a3a3;
+
+  /* Flip accent to white-on-black so primary buttons stay legible in dark mode. */
+  --accent: var(--white);
+  --accent-foreground: var(--black);
+  --focus: var(--white);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  background: #fafafa;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dark body {
+  background: #0a0a0a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.dark ::selection {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Ambient monochrome mesh behind everything, echoing the Glass-UI reference layout in black & white */
+.mesh-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: #fafafa;
+  transition: background-color 0.2s ease;
+}
+
+.dark .mesh-bg {
+  background: #0a0a0a;
+}
+
+.mesh-bg::before,
+.mesh-bg::after {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.5;
+}
+
+.mesh-bg::before {
+  width: 55vw;
+  height: 55vw;
+  top: -18vw;
+  left: -14vw;
+  background: radial-gradient(circle at 30% 30%, #d4d4d4, #9a9a9a 55%, transparent 75%);
+}
+
+.dark .mesh-bg::before {
+  background: radial-gradient(circle at 30% 30%, #4a4a4a, #262626 55%, transparent 75%);
+  opacity: 0.6;
+}
+
+.mesh-bg::after {
+  width: 60vw;
+  height: 60vw;
+  bottom: -22vw;
+  right: -16vw;
+  background: radial-gradient(circle at 60% 40%, #bdbdbd, #8a8a8a 45%, #3a3a3a 75%, transparent 85%);
+}
+
+.dark .mesh-bg::after {
+  background: radial-gradient(circle at 60% 40%, #3a3a3a, #1f1f1f 45%, #000 75%, transparent 85%);
+  opacity: 0.7;
+}
+
+.mesh-blob-center {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 40vw;
+  height: 40vw;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  filter: blur(100px);
+  opacity: 0.3;
+  background: radial-gradient(circle, #7a7a7a, transparent 70%);
+}
+
+.dark .mesh-blob-center {
+  background: radial-gradient(circle, #5a5a5a, transparent 70%);
+  opacity: 0.25;
+}
+
+/* Glass surface utility, tuned to match the frosted panels in Glass-UI.png */
+.glass {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 8px 30px rgba(20, 18, 29, 0.08),
+    0 1.5px 4px rgba(20, 18, 29, 0.06);
+}
+
+.dark .glass {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.5),
+    0 1.5px 4px rgba(0, 0, 0, 0.4);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 10px 40px rgba(20, 18, 29, 0.1),
+    0 2px 6px rgba(20, 18, 29, 0.06);
+}
+
+.dark .glass-strong {
+  background: rgba(20, 20, 20, 0.75);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.55),
+    0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+.dark .glass-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(20, 18, 29, 0.15);
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+}
